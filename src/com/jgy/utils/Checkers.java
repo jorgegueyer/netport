@@ -5,11 +5,13 @@ import java.util.regex.Pattern;
 
 public class Checkers {
 	
+	private static final String EMAIL_PATTERN = "/^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$/";
+	
 	public static boolean checkEmail(String email) {
 		if (email == null || email.length() == 0)
 			return false;
 		else {
-			Pattern pat = Pattern.compile("/^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$/");
+			Pattern pat = Pattern.compile(EMAIL_PATTERN);
 		    Matcher mat = pat.matcher(email);
 		    if (mat.matches())
 		    	return true;
