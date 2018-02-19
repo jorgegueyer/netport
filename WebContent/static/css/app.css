@@ -1,3 +1,15 @@
+.login-width {
+	width:25%;
+}
+
+.form-width {
+	width: 35%;
+}
+
+.button-signup-width {
+	width: 25%;
+}
+
 .right-space {
 	margin-right: 1em;	
 }
@@ -16,6 +28,14 @@
 
 .big-top-space {
 	margin-top: 200px;
+}
+
+.big-top-space-login {
+	margin-top: 150px;
+}
+
+.big-top-space-signup {
+	margin-top: 100px;
 }
 
 .large-padding {

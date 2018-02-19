@@ -43,15 +43,16 @@ public class Home extends HttpServlet {
     		request.setAttribute("list",list);
     	}
     	
+    	request.setAttribute("nav",Pages.JSPNAVHOME);
     	request.setAttribute("page",Pages.JSPHOME);
     	request.getRequestDispatcher(Pages.JSPTEMPLATE).forward(request, response);       
     } 
     
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    //@Override
+    /*protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-    }
+        //processRequest(request, response);
+    }*/
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

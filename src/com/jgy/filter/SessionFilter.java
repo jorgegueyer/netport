@@ -45,19 +45,27 @@ public class SessionFilter implements Filter {
         HttpSession session = request.getSession();
     	LoginTO login = (LoginTO) session.getAttribute("login");
  
-        if (servletPath.equals(Pages.LOGIN) || servletPath.equals(Pages.PRESIGNUP)) {
+        if (servletPath.equals(Pages.LOGIN)   || servletPath.equals(Pages.PRESIGNUP) || 
+        	servletPath.equals(Pages.POSTSIGNUP) || servletPath.equals(Pages.SESSION) 	 ||
+        	servletPath.equals(Pages.SIGNOUT) ||this.isResource(servletPath)) {
+        	
             chain.doFilter(request, response);
             return;
-        }
-        
-        HttpServletRequest wrapRequest = request;
+        }        
  
         if (!this.isSessionPage(request) || login == null) {         	
         	response.sendRedirect(request.getContextPath() + Pages.LOGIN);
             return;
         }
  
-        chain.doFilter(wrapRequest, response);
+        chain.doFilter(request, response);
+    }
+    
+    private boolean isResource(String servletPath) {    	
+        if (servletPath.indexOf("static") > -1 ) {
+        	return true;
+        }
+        else return false;
     }
     
     private boolean isSessionPage(HttpServletRequest request) {    	

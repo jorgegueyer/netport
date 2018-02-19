@@ -19,3 +19,24 @@ VALUES (1,'Natación Noche','Natación','00:55:12', '00:01:19',STR_TO_DATE('08-0
 UPDATE Activity SET Duration='01:12:34' WHERE ID=1;
 
 SELECT * FROM Activity;
+
+ALTER TABLE User
+MODIFY COLUMN Name varchar(25); 
+
+ALTER TABLE User
+MODIFY COLUMN Surname varchar(30);
+
+ALTER TABLE Login
+MODIFY COLUMN Username varchar(15); 
+
+ALTER TABLE Login
+MODIFY COLUMN Email varchar(35); 
+
+ALTER TABLE Login
+MODIFY COLUMN Password varchar(6); 
+
+ALTER TABLE Activity
+MODIFY COLUMN Name varchar(30); 
+
+ALTER TABLE Activity
+MODIFY COLUMN Type varchar(15); 

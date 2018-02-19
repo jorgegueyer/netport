@@ -8,5 +8,7 @@ public interface ILoginDAO {
 	
 	public abstract LoginTO findLogin(String username, String password) throws SQLException;
 	
+	public abstract boolean existLogin(String username, String email) throws SQLException;
+	
 	public abstract LoginTO insertLogin(LoginTO login) throws SQLException;
 }

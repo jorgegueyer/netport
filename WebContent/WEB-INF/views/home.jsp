@@ -40,9 +40,14 @@
 	else {		
 		String message = (String)request.getAttribute("message");
   	%>
-  	<div class="alert alert-danger">
-    	<strong><%=message%></strong>
-  	</div>
+  	<div class="big-top-space">
+		<div class="col-md-4 form-width remove-float center-block">
+		 	<div class="alert alert-danger alert-dismissable">
+		 		<a href="#" class="close" data-dismiss="alert" aria-label="close">x</a>
+	  				<strong><%=message%></strong>
+			</div>
+		</div>		
+  	</div>	
   	<%
 	}
   	%>

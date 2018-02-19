@@ -1,7 +1,7 @@
 package com.jgy.dao.to;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class UserTO implements Serializable {
 
@@ -9,7 +9,7 @@ public class UserTO implements Serializable {
 	private int id;	
 	private String name;
 	private String surname;
-	private Date birthday;
+	private LocalDate birthday;
 	
 	public int getId() {
 		return id;
@@ -29,10 +29,10 @@ public class UserTO implements Serializable {
 	public void setSurname(String surname) {
 		this.surname = surname;
 	}
-	public Date getBirthday() {
-		return birthday;
+	public LocalDate getBirthday() {
+		return this.birthday;
 	}
-	public void setBirthday(Date birthday) {
+	public void setBirthday(LocalDate birthday) {
 		this.birthday = birthday;
 	}	
 }

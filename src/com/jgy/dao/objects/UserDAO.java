@@ -9,6 +9,7 @@ import java.sql.Statement;
 import com.jgy.dao.DBConn;
 import com.jgy.dao.interfaces.IUserDAO;
 import com.jgy.dao.to.UserTO;
+import com.jgy.utils.Parsers;
 
 public class UserDAO implements IUserDAO  {
 	
@@ -18,6 +19,7 @@ public class UserDAO implements IUserDAO  {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		try {
+			//TODO: Forma insegura de obtener la conexión
 			conn = DBConn.getInstance().getConnection();	
 			
             if (userid > 0) {            	
@@ -34,7 +36,7 @@ public class UserDAO implements IUserDAO  {
     				user.setId(rs.getInt("ID"));
                 	user.setName(rs.getString("Name"));
                 	user.setSurname(rs.getString("Surname"));
-                	user.setBirthday(rs.getDate("Birthday"));
+                	user.setBirthday(Parsers.parserDatetoLocalDate(rs.getDate("Birthday")));
                 }
     			else user = null;
             }
@@ -63,7 +65,7 @@ public class UserDAO implements IUserDAO  {
 			query +="VALUES(";
 			query += "'" + user.getName()  		+ "',"; 
 			query += "'" + user.getSurname()    + "',"; 
-			query += "'" + user.getBirthday() 	+ "')";
+			query += "'" + user.getBirthday().toString()	+ "')";
 			
 			stmt = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 			
@@ -75,7 +77,7 @@ public class UserDAO implements IUserDAO  {
 	        else {        	
 		       	ResultSet rs = stmt.getGeneratedKeys();
 		        if (rs.next()) { 
-		        	int id = rs.getInt("ID");
+		        	int id = rs.getInt(1);
 		        	if (id > 0) {
 		        		user.setId(id);
 		        		result = user;
@@ -85,6 +87,7 @@ public class UserDAO implements IUserDAO  {
 		}    
 	    catch(SQLException ex) {
 	    	//TODO: Manejar excepciones de la creación de un User
+	    	
 	    	result = null;
 	    }
 		finally {

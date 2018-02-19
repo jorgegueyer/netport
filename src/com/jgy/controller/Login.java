@@ -18,6 +18,7 @@ public class Login extends HttpServlet {
     private void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     	
+    	request.setAttribute("nav", Pages.JSPNAVLOGIN);
     	request.setAttribute("page", Pages.JSPLOGIN);
     	request.getRequestDispatcher(Pages.JSPTEMPLATE).forward(request, response);       
     }    

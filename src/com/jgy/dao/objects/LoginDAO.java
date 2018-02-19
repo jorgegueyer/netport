@@ -21,7 +21,7 @@ public class LoginDAO implements ILoginDAO {
 			conn = DBConn.getInstance().getConnection();	
 			
 			String query  = "SELECT * FROM Login ";
-			query += "WHERE (Username='" + username + "' OR Email='" + username + "') AND Password='" + Integer.parseInt(password) + "'";
+			query += "WHERE (Username='" + username + "' OR Email='" + username + "') AND Password='" + password + "'";
 			
 			stmt = conn.prepareStatement(query);
 			
@@ -48,6 +48,32 @@ public class LoginDAO implements ILoginDAO {
     	} 
 		return login;
 	}	
+	
+	public boolean existLogin(String username, String email) throws SQLException {
+		Connection conn = null;
+		PreparedStatement stmt = null;
+		try {
+			conn = DBConn.getInstance().getConnection();	
+			
+			String query  = "SELECT * FROM Login ";
+			query += "WHERE (Username='" + username + "' OR Email='" + email + "')";
+			
+			stmt = conn.prepareStatement(query);
+			
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) return true;
+            else return false;
+		}
+        catch (SQLException e) {	
+        	//TODO: Manejar excepciones de la búsqueda de Login
+        	e.getStackTrace();
+        }
+		finally{			
+			if (stmt != null) stmt.close();
+        	if (conn != null) conn.close();
+    	} 
+		return false;
+	}
 	
 	@Override	
 	public LoginTO insertLogin(LoginTO login) throws SQLException {

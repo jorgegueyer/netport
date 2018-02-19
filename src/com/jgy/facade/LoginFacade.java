@@ -13,6 +13,11 @@ public class LoginFacade {
 		return loginDao.findLogin(email, password);
 	}
 	
+	public boolean searchlogin(String email, String password) throws SQLException {	
+		ILoginDAO loginDao = DAOFactory.getInstance().getLoginDAO();
+		return loginDao.existLogin(email, password);
+	}
+	
 	public LoginTO createLogin(LoginTO login) throws SQLException {	
 		ILoginDAO loginDao = DAOFactory.getInstance().getLoginDAO();
 		return loginDao.insertLogin(login);
