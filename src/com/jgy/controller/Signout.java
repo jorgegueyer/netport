@@ -11,6 +11,12 @@ import javax.servlet.http.HttpSession;
 
 import com.jgy.config.Pages;
 
+/**
+ * 
+ * Controller to close the session	
+ * @author Jorge Guerra Yerpes 
+ * 
+ */
 @WebServlet(name = "Signout", urlPatterns = {"/signout"})
 public class Signout extends HttpServlet {
 

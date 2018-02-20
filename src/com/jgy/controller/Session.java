@@ -15,6 +15,12 @@ import com.jgy.dao.to.LoginTO;
 import com.jgy.facade.LoginFacade;
 import com.jgy.utils.Checkers;
 
+/**
+ * 
+ * Controller to check whether the data session is valid	
+ * @author Jorge Guerra Yerpes 
+ * 
+ */
 @WebServlet(name = "Session", urlPatterns = {"/session"})
 public class Session extends HttpServlet {
 
@@ -39,7 +45,7 @@ public class Session extends HttpServlet {
 				login = null;
 			}
 			if (login == null) { 
-				this.error = "The username or the password isn't correct! Please, try it again!";
+				this.error = "The username or the password aren't correct! Please, try it again!";
 			}	
 		}	
 		if (this.error == null && login != null) {
@@ -63,7 +69,8 @@ public class Session extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    	response.sendError(401,"Acceso denegado");//TODO Gestión de errores a mostrar al usuario
+    	//TODO: Manage problems to show the user
+    	response.sendError(401,"Acceso denegado");
     }
     
     private boolean processParametersForm(HttpServletRequest request) {    	

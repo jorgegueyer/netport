@@ -10,6 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.jgy.config.Pages;
 
+/**
+ * 
+ * Controller to load the Sign up page	
+ * @author Jorge Guerra Yerpes 
+ * 
+ */
 @WebServlet(name = "PreSignup", urlPatterns = {"/presignup"})
 public class PreSignup extends HttpServlet {
 

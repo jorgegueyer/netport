@@ -16,6 +16,12 @@ import com.jgy.dao.to.ActivityTO;
 import com.jgy.dao.to.LoginTO;
 import com.jgy.facade.ActivityFacade;
 
+/**
+ * 
+ * Controller to load the main user page with its information	
+ * @author Jorge Guerra Yerpes 
+ * 
+ */
 @WebServlet(name = "Home", urlPatterns = {"/home"})
 public class Home extends HttpServlet {
 
@@ -37,7 +43,8 @@ public class Home extends HttpServlet {
     		list = null;
     	}
     	if (list == null) {
-    		request.setAttribute("message","No se ha podido cargar los datos");
+    		//TODO: Change empty data message
+    		request.setAttribute("message","It hasn't been possible to load the data");
     	}
     	else {
     		request.setAttribute("list",list);
@@ -46,13 +53,7 @@ public class Home extends HttpServlet {
     	request.setAttribute("nav",Pages.JSPNAVHOME);
     	request.setAttribute("page",Pages.JSPHOME);
     	request.getRequestDispatcher(Pages.JSPTEMPLATE).forward(request, response);       
-    } 
-    
-    //@Override
-    /*protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        //processRequest(request, response);
-    }*/
+    }
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

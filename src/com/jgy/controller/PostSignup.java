@@ -17,6 +17,12 @@ import com.jgy.facade.UserFacade;
 import com.jgy.utils.Checkers;
 import com.jgy.utils.Parsers;
 
+/**
+ * 
+ * Controller to process the data after Signing up	
+ * @author Jorge Guerra Yerpes 
+ * 
+ */
 @WebServlet(name = "PostSignup", urlPatterns = {"/postsignup"})
 public class PostSignup extends HttpServlet {
 
@@ -31,7 +37,8 @@ public class PostSignup extends HttpServlet {
 	private String password;
 	private String password_confirmation;
 	
-	protected void processRequest(HttpServletRequest request, HttpServletResponse response) //TODO Revisar logica
+	//TODO: Check logic
+	protected void processRequest(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
 		
 		this.error = null;
@@ -70,13 +77,13 @@ public class PostSignup extends HttpServlet {
 				this.error = "No se ha podido crear la cuenta";
 			}
 			if (this.error != null){
-				//TODO: Gestión de errores para problemas especificos
+				//TODO: Manage specific problems
 				request.setAttribute("error", this.error);
 				request.setAttribute("nav", Pages.JSPNAVLOGIN);
 				request.setAttribute("page", Pages.JSPSIGNUP);				
 			}
 			else if (user != null && login != null) {
-				request.setAttribute("success", "Usuario creado correctamente! Por favor inicie sesión.");
+				request.setAttribute("success", "User created properly! Sign in, please.");
 				request.setAttribute("nav", Pages.JSPNAVLOGIN);
 		    	request.setAttribute("page", Pages.JSPLOGIN);
 			}	

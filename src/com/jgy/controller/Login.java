@@ -10,6 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.jgy.config.Pages;
 
+/**
+ * 
+ * Controller to load the Login page	
+ * @author Jorge Guerra Yerpes 
+ * 
+ */
 @WebServlet(name = "Login", urlPatterns = {"/login"})
 public class Login extends HttpServlet {
 
