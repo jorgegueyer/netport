@@ -7,6 +7,12 @@ import com.jgy.dao.objects.ActivityDAO;
 import com.jgy.dao.objects.LoginDAO;
 import com.jgy.dao.objects.UserDAO;
 
+/**
+ * 
+ * Factory to instantiate the each Data Access Object	
+ * @author Jorge Guerra Yerpes 
+ * 
+ */
 public class DAOFactory {
 
 	private static DAOFactory daoFac;
@@ -30,4 +36,4 @@ public class DAOFactory {
     public IActivityDAO getActivityDAO(){
         return new ActivityDAO();
     }
-}	
+}

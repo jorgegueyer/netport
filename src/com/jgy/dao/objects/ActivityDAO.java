@@ -1,5 +1,4 @@
 package com.jgy.dao.objects;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,22 +10,26 @@ import com.jgy.dao.DBConn;
 import com.jgy.dao.interfaces.IActivityDAO;
 import com.jgy.dao.to.ActivityTO;
 
+/**
+ * 
+ * DAO to obtain data from the Activity table	
+ * @author Jorge Guerra Yerpes 
+ * 
+ */
 public class ActivityDAO implements IActivityDAO {
 	
 	public List<ActivityTO> findActivitiesByUser(int userid) throws SQLException {
-		List<ActivityTO> list = null;
-		Connection conn = null;
-		PreparedStatement stmt = null;
-		try {
-			conn = DBConn.getInstance().getConnection();	
+		
+		List<ActivityTO> list = null;		
+		String query  = "SELECT * FROM Activity ";
+		query += "WHERE Userid='" + userid + "'";
+		
+		try (
+				Connection conn = DBConn.getInstance().getConnection();
+				PreparedStatement stmt = conn.prepareStatement(query);
+		) {	
 			
-			String query  = "SELECT * FROM Activity ";
-			query += "WHERE Userid='" + userid + "'";
-			
-			stmt = conn.prepareStatement(query);
-			
-            ResultSet rs = stmt.executeQuery();
-            
+            ResultSet rs = stmt.executeQuery();            
             list = new ArrayList<ActivityTO>();            
             
             if (rs.next()) {
@@ -42,14 +45,10 @@ public class ActivityDAO implements IActivityDAO {
             else list = null;
 		}
 		catch(SQLException e) {
-			//TODO: Manejar excepciones de la búsqueda de actividades
+			//TODO: Manage especific exceptions
 			e.getStackTrace();
     		list = null;
-        }
-		finally{
-			if (stmt != null) stmt.close();
-        	if (conn != null) conn.close();
-    	} 
+        }		
 		return list;
 	}
 }

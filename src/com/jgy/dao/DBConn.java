@@ -8,6 +8,12 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+/**
+ * 
+ * DBConn creates the data source and offers access the connections pool to the BBDD	
+ * @author Jorge Guerra Yerpes 
+ * 
+ */
 public class DBConn {
 	
 	private static final String JDBCRESOURCENAME = "jdbc/netport";
@@ -24,7 +30,7 @@ public class DBConn {
 			envCtxt = (Context) initCtxt.lookup("java:comp/env");
 			ds = (DataSource) envCtxt.lookup(JDBCRESOURCENAME);
 		} catch (NamingException e) {
-			// TODO: Gestionar Excepciones de acceso a BBDD
+			// TODO: Manage exceptions by accesing BBDD
 			e.printStackTrace();
 		}		
     }
@@ -41,7 +47,7 @@ public class DBConn {
 		try {
 			conn = ds.getConnection();
 		} catch (SQLException e) {
-			// TODO: Gestionar Excepciones de acceso a BBDD
+			// TODO: Manage exceptions by accesing BBDD
 			e.printStackTrace();
 			conn = null;
 		}		
