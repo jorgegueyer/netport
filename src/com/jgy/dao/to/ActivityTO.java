@@ -1,16 +1,16 @@
 package com.jgy.dao.to;
 
-import java.sql.Time;
-import java.util.Date;
+import java.time.LocalTime;
+import java.time.LocalDate;
 
 public class ActivityTO {
 	
 	private int userid;
 	private String name;
 	private String type;
-	private Time duration;
-	private Time averageRhythm;
-	private Date cdate;		
+	private LocalTime duration;
+	private LocalTime averageRhythm;
+	private LocalDate cdate;		
 	
 	public int getUserid() {
 		return userid;
@@ -30,22 +30,22 @@ public class ActivityTO {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public Time getDuration() {
+	public LocalTime getDuration() {
 		return duration;
 	}
-	public void setDuration(Time duration) {
+	public void setDuration(LocalTime duration) {
 		this.duration = duration;
 	}
-	public Time getAverageRhythm() {
+	public LocalTime getAverageRhythm() {
 		return averageRhythm;
 	}
-	public void setAverageRhythm(Time averageRhythm) {
+	public void setAverageRhythm(LocalTime averageRhythm) {
 		this.averageRhythm = averageRhythm;
 	}
-	public Date getCdate() {
+	public LocalDate getCdate() {
 		return cdate;
 	}
-	public void setCdate(Date cdate) {
+	public void setCdate(LocalDate cdate) {
 		this.cdate = cdate;
 	}
 }

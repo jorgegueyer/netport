@@ -50,9 +50,9 @@ public class Home extends HttpServlet {
     		request.setAttribute("list",list);
     	}
     	
-    	request.setAttribute("nav",Pages.JSPNAVHOME);
-    	request.setAttribute("page",Pages.JSPHOME);
-    	request.getRequestDispatcher(Pages.JSPTEMPLATE).forward(request, response);       
+    	request.setAttribute("nav",Pages.JSP_NAV_HOME);
+    	request.setAttribute("page",Pages.JSP_HOME);
+    	request.getRequestDispatcher(Pages.JSP_TEMPLATE).forward(request, response);       
     }
     
     @Override

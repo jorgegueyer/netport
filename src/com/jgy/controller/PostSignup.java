@@ -44,7 +44,7 @@ public class PostSignup extends HttpServlet {
 		this.error = null;
 		if (!this.processParametersForm(request)) {
 			request.setAttribute("error", this.error);
-			request.setAttribute("page", Pages.JSPSIGNUP);
+			request.setAttribute("page", Pages.JSP_SIGNUP);
 		}
 		else {
 			UserTO user = new UserTO();		
@@ -79,17 +79,17 @@ public class PostSignup extends HttpServlet {
 			if (this.error != null){
 				//TODO: Manage specific problems
 				request.setAttribute("error", this.error);
-				request.setAttribute("nav", Pages.JSPNAVLOGIN);
-				request.setAttribute("page", Pages.JSPSIGNUP);				
+				request.setAttribute("nav", Pages.JSP_NAV_LOGIN);
+				request.setAttribute("page", Pages.JSP_SIGNUP);				
 			}
 			else if (user != null && login != null) {
 				request.setAttribute("success", "User created properly! Sign in, please.");
-				request.setAttribute("nav", Pages.JSPNAVLOGIN);
-		    	request.setAttribute("page", Pages.JSPLOGIN);
+				request.setAttribute("nav", Pages.JSP_NAV_LOGIN);
+		    	request.setAttribute("page", Pages.JSP_LOGIN);
 			}	
 			
 		}
-    	request.getRequestDispatcher(Pages.JSPTEMPLATE).forward(request, response);       
+    	request.getRequestDispatcher(Pages.JSP_TEMPLATE).forward(request, response);       
     } 
 
     @Override

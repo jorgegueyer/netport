@@ -55,8 +55,8 @@ public class Session extends HttpServlet {
 		}		
 		else if (this.error != null){
 			request.setAttribute("error",this.error);	
-			request.setAttribute("page",Pages.JSPLOGIN);	
-			request.getRequestDispatcher(Pages.JSPTEMPLATE).forward(request, response);
+			request.setAttribute("page",Pages.JSP_LOGIN);	
+			request.getRequestDispatcher(Pages.JSP_TEMPLATE).forward(request, response);
 		}
     } 
     

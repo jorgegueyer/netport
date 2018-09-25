@@ -16,7 +16,7 @@ import javax.sql.DataSource;
  */
 public class DBConn {
 	
-	private static final String JDBCRESOURCENAME = "jdbc/netport";
+	private static final String JDBC_RESOURCE_NAME = "jdbc/netport";
 
 	private static DataSource ds;
 	private static Connection conn;
@@ -28,7 +28,7 @@ public class DBConn {
 		try {
 			initCtxt = new InitialContext();
 			envCtxt = (Context) initCtxt.lookup("java:comp/env");
-			ds = (DataSource) envCtxt.lookup(JDBCRESOURCENAME);
+			ds = (DataSource) envCtxt.lookup(JDBC_RESOURCE_NAME);
 		} catch (NamingException e) {
 			// TODO: Manage exceptions by accesing BBDD
 			e.printStackTrace();

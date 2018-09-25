@@ -24,9 +24,9 @@ public class Login extends HttpServlet {
     private void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     	
-    	request.setAttribute("nav", Pages.JSPNAVLOGIN);
-    	request.setAttribute("page", Pages.JSPLOGIN);
-    	request.getRequestDispatcher(Pages.JSPTEMPLATE).forward(request, response);       
+    	request.setAttribute("nav", Pages.JSP_NAV_LOGIN);
+    	request.setAttribute("page", Pages.JSP_LOGIN);
+    	request.getRequestDispatcher(Pages.JSP_TEMPLATE).forward(request, response);       
     }    
    
     @Override

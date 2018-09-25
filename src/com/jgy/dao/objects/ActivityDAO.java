@@ -37,9 +37,9 @@ public class ActivityDAO implements IActivityDAO {
             	activity.setUserid(rs.getInt("Userid"));
             	activity.setName(rs.getString("Name"));
             	activity.setType(rs.getString("Type"));
-            	activity.setDuration(rs.getTime("Duration"));
-            	activity.setAverageRhythm(rs.getTime("AverageRhythm"));
-            	activity.setCdate(rs.getDate("CDate"));
+            	activity.setDuration(rs.getTime("Duration").toLocalTime());
+            	activity.setAverageRhythm(rs.getTime("AverageRhythm").toLocalTime());
+            	activity.setCdate(rs.getDate("CDate").toLocalDate());
             	list.add(activity);
             } 
             else list = null;

@@ -32,9 +32,9 @@ public class Signout extends HttpServlet {
             session = null;
         }		
 		
-		request.setAttribute("nav", Pages.JSPNAVLOGIN);
-		request.setAttribute("page", Pages.JSPSIGNOUT);
-    	request.getRequestDispatcher(Pages.JSPTEMPLATE).forward(request, response);       
+		request.setAttribute("nav", Pages.JSP_NAV_LOGIN);
+		request.setAttribute("page", Pages.JSP_SIGNOUT);
+    	request.getRequestDispatcher(Pages.JSP_TEMPLATE).forward(request, response);       
     } 
     
     @Override
